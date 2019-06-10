@@ -50,7 +50,7 @@ header {
 	left: 0;
 	width: 100%;
 	color: #fff;
-	padding: 30px 70px 15px;
+	padding: 30px 100px 20px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -68,7 +68,7 @@ header a:hover {
 }
  
 header nav ul {
-	font-size: 40px;
+	font-size: 20px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -89,10 +89,9 @@ header nav li:last-child {
 
 @media(max-width:1000px) {
 	header {
-		margin: 0 6px;
 		text-align: center;
 		flex-direction: column;
-		padding: 40px 50px;
+		padding: 20px 50px;
 	}
 	header img {
 		width: 75%;
@@ -105,7 +104,7 @@ header nav li:last-child {
 		margin-bottom: 15px;
 	}
 	header nav ul {
-		font-size: 15px;
+		font-size: 10px;
 	}
 }
 
