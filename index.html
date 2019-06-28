@@ -87,25 +87,35 @@
 		</div>
 		
 		<script>
+			//window.addEventListener('load', 'setup');
 			//const xlables = [];
 			//const ytempts = [];
 			makeChart();
 			async function makeChart(){
-				const x_y = await getData();
+				
 				const ctx = document.getElementById('chart').getContext('2d');
+				const x_y = await getData();
 				const myChart = new Chart(ctx, {
 					type: 'line',
 					data: {
-       					labels: x_y.xs,
+       					labels: x_y.years,
         				datasets: [
 							{
-            				label: 'Combined Land-surface Air and sea-Surface Water temp in C°',
-            				data: x_y.ys,
+            				label: 'Global temp in C°',
+            				data: x_y.temps,
 							fill: false,
-            				backgroundColor: 'rgba(255,99,132,0.2)',
+            				backgroundColor: 'rgba(255,99,132,0.5)',
 							borderColor: 'rgba(255,99,132,1)',
 							borderWidth: 1
-					
+							},
+							{
+							label: 'Northern Hemisphere temp in C°',
+            				data: x_y.northern,
+							fill: false,
+            				backgroundColor: 'rgba(99,255,132,.05)',
+							borderColor: 'rgba(99, 132, 255, 1)',
+							borderWidth: 1
+
 							}
 						]
 					},
@@ -130,24 +140,32 @@
 			
 		//temp.csv from https://data.giss.nasa.gov/gistemp
 		async function getData(){
-			const xs = [];
-			const ys  = [];
+			//const xs = [];
+			//const ys  = [];
 			const response = await fetch('temp.csv');
 			const data = await response.text();
 			//console.log(data);
-			
+			const years = [];
+			const temps =[];
+			const northern =[];
 			//slice makes copy of portions of array
 			// so split after \n and slice array with 2 elements 
+			//const table = data.split('\n').slice(1);
 			const table = data.split('\n').slice(1);
 			table.forEach(row => {
 				const columns = row.split(',');
-				const year = columns[0];
-				xs.push(year); //creating year lables for chart 
+				years.push(columns[0]);
+				//xs.push(year); //creating year lables for chart 
+				
+				
 				const temp = columns[1];
-				ys.push(parseFloat(temp) + 14);
-				console.log(year, temp);
+				temps.push(parseFloat(temp) + 14);
+				const temp1 = columns[2];
+				northern.push(parseFloat(temp1) + 14);
+				//console.log(year, temp);
 			});
-			return {xs, ys};
+			//return {xs, ys};
+			return {years, temps, northern}
 		}
 
 		</script>
@@ -232,7 +250,9 @@
 			</ul>
 			<p>&copy; <script>document.write(new Date().getFullYear());</script> JG.Dev</p>
 		</footer>
+
 		
+		<!--animate the navigation to slowly scroll to location--> 
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('a[href^="#"]').on('click', function(e) {
