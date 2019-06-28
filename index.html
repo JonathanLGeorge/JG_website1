@@ -11,6 +11,8 @@
 		<script src="https://kit.fontawesome.com/995d4084f1.js"></script>
 		<link rel="stylesheet" href="styles.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<script src='https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js'></script>
+		
 		<style>
 	
 						
@@ -79,7 +81,79 @@
 			</ul>
 		</div>
 		<hr>
-	
+		<div>
+			<h2 id="chart_h2">A chart using a CSV table and Charts.js</h2>
+			<canvas id="chart" width="800" heigth='400'></canvas>
+		</div>
+		
+		<script>
+			//const xlables = [];
+			//const ytempts = [];
+			makeChart();
+			async function makeChart(){
+				const x_y = await getData();
+				const ctx = document.getElementById('chart').getContext('2d');
+				const myChart = new Chart(ctx, {
+					type: 'line',
+					data: {
+       					labels: x_y.xs,
+        				datasets: [
+							{
+            				label: 'Combined Land-surface Air and sea-Surface Water temp in C°',
+            				data: x_y.ys,
+							fill: false,
+            				backgroundColor: 'rgba(255,99,132,0.2)',
+							borderColor: 'rgba(255,99,132,1)',
+							borderWidth: 1
+					
+							}
+						]
+					},
+					options: {
+						scales: {
+							yAxes: [
+								{
+									ticks:{
+										//adding the ° to the ticker
+										callback: function(value, index, values){
+											return value + '°';
+										}
+									}
+								}
+							]
+						}
+					}
+				});
+			}
+
+			//getData();
+			
+		//temp.csv from https://data.giss.nasa.gov/gistemp
+		async function getData(){
+			const xs = [];
+			const ys  = [];
+			const response = await fetch('temp.csv');
+			const data = await response.text();
+			//console.log(data);
+			
+			//slice makes copy of portions of array
+			// so split after \n and slice array with 2 elements 
+			const table = data.split('\n').slice(1);
+			table.forEach(row => {
+				const columns = row.split(',');
+				const year = columns[0];
+				xs.push(year); //creating year lables for chart 
+				const temp = columns[1];
+				ys.push(parseFloat(temp) + 14);
+				console.log(year, temp);
+			});
+			return {xs, ys};
+		}
+
+		</script>
+		<hr>
+
+
 	<!--****************************************************************-->
 		<div id="famous-quotes">
 			<h3 class="title">SOME WORDS OF WISDOM</h3>

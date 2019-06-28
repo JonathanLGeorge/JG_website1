@@ -353,6 +353,15 @@ height: 420px;
 }
 
 /*
+*******************	chart	***********************************************
+*/
+
+
+#chart_h2 {
+	text-align: center;
+}
+
+/*
 *******************	famous-quotes	***********************************************
 */	
 
@@ -439,7 +448,7 @@ footer {
 footer p{
 	text-transform: uppercase;
 	font-size: 18px;
-	color: rgba(255,255,255,.6)
+	color: rgba(255,255,255,.6);
 	margin-bottom: 10px;
 	
 }
@@ -463,4 +472,5 @@ footer ul li a{
 	footer{
 		padding: 50px 15px;
 	}
-}height: 350px;
+	
+}
