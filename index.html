@@ -199,8 +199,9 @@
 			const worldMap = L.map('issMap').setView([0, 0], 3);//[lat,long],zoom
 			const attribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 			const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-      		const tiles = L.tileLayer(tileUrl, { attribution });
+      		const tiles = L.tileLayer(tileUrl, { attribution});
       		tiles.addTo(worldMap);
+			worldMap.scrollWheelZoom.disable();//disable the annoying scroll zoom
 
 			//custom marker icon
 			const issIcon = L.icon({
