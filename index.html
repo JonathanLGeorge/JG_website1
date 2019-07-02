@@ -193,11 +193,7 @@
 	<h2>Where is the ISS using Json REST API</h2>
 			<p>latitude: <span id="lat"></span><br>
 			longitude: <span id="lon"></span></p>	
-	<div id="issMap">
-			<h2>Where is the ISS using Json REST API</h2>
-			<p>latitude: <span id="lat"></span><br>
-			longitude: <span id="lon"></span></p>
-		</div>
+	<div id="issMap"></div>
 		
 		<script>
 			const worldMap = L.map('issMap').setView([0, 0], 3);//[lat,long],zoom
@@ -234,7 +230,7 @@
 				//console.log(longitude);	
 			}
 			getISS();
-			setInterval(getISS, 5000);
+			setInterval(getISS, 10000);
 		</script>
 		<hr>
 
