@@ -12,11 +12,27 @@
 		<link rel="stylesheet" href="styles.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 		<script src='https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js'></script>
-		
+		<link
+      		rel="stylesheet"
+      		href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+			crossorigin=""
+		/>
+		<!--leaflet-->
+		<script
+		src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+		integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+		crossorigin="">
+		</script>
+
 		<style>
-	
+			/*got lazy... just style for iss map*/
+			#issMap{
+				height: 600px;
+			}
 						
 		</style>
+	
 	</head>
 	<body id="top">
 	<!--****************************************************************-->
@@ -62,7 +78,7 @@
 					<br>
 					<br><b>Let's build something!</b></p>
 			</div>
-			<p>&nbsp;</p <!--This is a line return-->
+			<p>&nbsp;</p><!--line return--->>
 		</div>
 	<!--****************************************************************-->
 		<div id="gallery" class="photo-gallery">
@@ -81,11 +97,14 @@
 			</ul>
 		</div>
 		<hr>
+
+<!--****************Carts.js/Graph******************************************-->
 		<div>
 			<h2 id="chart_h2">A chart using a CSV table and Charts.js</h2>
 			<canvas id="chart" width="800" heigth='400'></canvas>
 		</div>
 		
+
 		<script>
 			//window.addEventListener('load', 'setup');
 			//const xlables = [];
@@ -170,6 +189,55 @@
 
 		</script>
 		<hr>
+	<!--***********************JSon API ISS*********************************-->
+	<h2>Where is the ISS using Json REST API</h2>
+			<p>latitude: <span id="lat"></span><br>
+			longitude: <span id="lon"></span></p>	
+	<div id="issMap">
+			<h2>Where is the ISS using Json REST API</h2>
+			<p>latitude: <span id="lat"></span><br>
+			longitude: <span id="lon"></span></p>
+		</div>
+		
+		<script>
+			const worldMap = L.map('issMap').setView([0, 0], 3);//[lat,long],zoom
+			const attribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+			const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      		const tiles = L.tileLayer(tileUrl, { attribution });
+      		tiles.addTo(worldMap);
+
+			//custom marker icon
+			const issIcon = L.icon({
+        	iconUrl: 'img/iss200.png',
+        	iconSize: [50, 32],
+        	iconAnchor: [25, 16]
+      		});
+			
+			let marker = L.marker([0, 0], { icon: issIcon }).addTo(worldMap);
+			
+			const api_iss_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+			let firstTime = true;
+			
+			async function getISS() {
+				const issResponse = await fetch(api_iss_url);
+				const issData = await issResponse.json();
+				//console.log(issData);
+
+			//decouple json data
+				const { latitude, longitude } = issData;
+				worldMap.setView([latitude, longitude], worldMap.getZoom());
+				marker.setLatLng([latitude, longitude]);
+
+				document.getElementById('lat').textContent = latitude;
+				document.getElementById('lon').textContent = longitude;
+				//console.log(latitude);
+				//console.log(longitude);	
+			}
+			getISS();
+			setInterval(getISS, 5000);
+		</script>
+		<hr>
+
 
 
 	<!--****************************************************************-->
