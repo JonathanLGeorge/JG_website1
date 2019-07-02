@@ -18,17 +18,17 @@
       		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
 			crossorigin=""
 		/>
-		<!--leaflet-->
-		<script
-		src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-		integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-		crossorigin="">
-		</script>
+				<!--leaflet-->
+				<script
+				src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+				integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+				crossorigin="">
+				</script>
 
 		<style>
 			/*got lazy... just style for iss map*/
 			#issMap{
-				height: 600px;
+				height: 460px;
 			}
 						
 		</style>
@@ -42,6 +42,8 @@
 		<li><a href="#top">Top</a></li> |
 		<li><a href="#about">About</a></li> |
 		<li><a href="#gallery">Gallery</a></li> |
+		<li><a href="#chartjs">Chart</a></li> |
+		<li><a href="#issMapH">ISS</a></li> |
 		<li><a href="#famous-quotes">Quotes</a></li> |
 		<li><a href="#contact">Map</a></li> |
 		<li><a href="#getting-around">Lake</a></li> |
@@ -82,7 +84,6 @@
 		</div>
 	<!--****************************************************************-->
 		<div id="gallery" class="photo-gallery">
-		<br>
 		<hr>		<!--this draws a line -->
 			<h3 class="title">GALLERY</h3>
 			<p>Some Hiking Photos</p>
@@ -99,7 +100,7 @@
 		<hr>
 
 <!--****************Carts.js/Graph******************************************-->
-		<div>
+		<div id="chartjs">
 			<h2 id="chart_h2">A chart using a CSV table and Charts.js</h2>
 			<canvas id="chart" width="800" heigth='400'></canvas>
 		</div>
@@ -190,10 +191,13 @@
 		</script>
 		<hr>
 	<!--***********************JSon API ISS*********************************-->
-	<h2>Where is the ISS using Json REST API</h2>
-			<p>latitude: <span id="lat"></span><br>
-			longitude: <span id="lon"></span></p>	
-	<div id="issMap"></div>
+		
+	<div id="issMapH">
+		<h2 id="issStyle">Where is the ISS using Json REST API</h2>
+		<p id="pLat">latitude: <span id="lat"></span></p>
+		<p id="pLon">longitude: <span id="lon"></span></p>	
+		<div id="issMap"></div>
+	
 		
 		<script>
 			const worldMap = L.map('issMap').setView([0, 0], 3);//[lat,long],zoom
@@ -233,6 +237,7 @@
 			getISS();
 			setInterval(getISS, 10000);
 		</script>
+		</div>
 		<hr>
 
 
