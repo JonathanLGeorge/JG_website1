@@ -194,8 +194,8 @@
 		
 	<div id="issMapH">
 		<h2 id="issStyle">Where is the ISS using Json REST API</h2>
-		<p id="pLat">latitude: <span id="lat"></span></p>
-		<p id="pLon">longitude: <span id="lon"></span></p>	
+		<p id="pLat">latitude: <span id="lat"></span>°</p>
+		<p id="pLon">longitude: <span id="lon"></span>°</p>	
 		<div id="issMap"></div>
 	
 		
@@ -217,7 +217,7 @@
 			let marker = L.marker([0, 0], { icon: issIcon }).addTo(worldMap);
 			
 			const api_iss_url = 'https://api.wheretheiss.at/v1/satellites/25544';
-			let firstTime = true;
+			let firstTime = true; // for setting view 
 			
 			async function getISS() {
 				const issResponse = await fetch(api_iss_url);
@@ -229,8 +229,8 @@
 				worldMap.setView([latitude, longitude], worldMap.getZoom());
 				marker.setLatLng([latitude, longitude]);
 
-				document.getElementById('lat').textContent = latitude;
-				document.getElementById('lon').textContent = longitude;
+				document.getElementById('lat').textContent = latitude.toFixed(4);
+				document.getElementById('lon').textContent = longitude.toFixed(4);
 				//console.log(latitude);
 				//console.log(longitude);	
 			}
