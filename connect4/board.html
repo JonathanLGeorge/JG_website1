@@ -92,24 +92,288 @@
         </div>
         
 <script>
-     var turn = 0;
-function colorchange(element){
-    const player1 = 0;
-    const player2 = 1;
-  
-    var endgame = false;
 
-   
-        if (turn == 0){
-            element.style.backgroundColor = "blue";
-            turn = 1;
-        } else if (turn == 1) {
-            element.style.backgroundColor = "red";
-            turn = 0;
-        } else {
-            return;
-        }
+     var turn = 0;
+     var color = "red";
+     
+
+
+function colorchange(element){  
+console.log(element);
+/*
+    element id locations
+
+    [_0][_1][_2][_3][_4][_5][_6]
+    [_7][_8][_9][10][11][12][13]
+    [14][15][16][17][18][19][20]
+    [21][22][23][24][25][26][27]
+    [28][29][30][31][32][33][34]
+    [35][36][37][38][39][40][41]
+*/
+eID = parseInt(element.id);
+console.log(eID);
+    if(turn == 0){
+        turn = 1;
+        color = "blue";
+        console.log(turn);
+        console.log(color);
+    } else{
+        turn = 0;
+        color = "red";
     }
+
+    if((eID == 0) || (eID == 7) || (eID == 14) || (eID == 21) || (eID == 28) || (eID == 35)){
+        if(document.getElementById("35").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("35").style.backgroundColor = color;
+            
+        } else if(document.getElementById("28").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("28").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("21").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("21").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("14").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("14").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("7").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("7").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("0").style.backgroundColor == ""){
+            document.getElementById("0").style.backgroundColor = color;
+        } 
+       
+    }
+
+    /*
+    element id locations
+
+    [_0][_1][_2][_3][_4][_5][_6]
+    [_7][_8][_9][10][11][12][13]
+    [14][15][16][17][18][19][20]
+    [21][22][23][24][25][26][27]
+    [28][29][30][31][32][33][34]
+    [35][36][37][38][39][40][41]
+*/
+    if((eID == 1) || (eID == 8) || (eID == 15) || (eID == 22) || (eID == 29) || (eID == 36)){
+        if(document.getElementById("36").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("36").style.backgroundColor = color;
+            
+        } else if(document.getElementById("29").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("29").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("22").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("22").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("15").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("15").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("8").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("8").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("1").style.backgroundColor == ""){
+            document.getElementById("1").style.backgroundColor = color;
+        } 
+       
+    }
+
+    /*
+    element id locations
+
+    [_0][_1][_2][_3][_4][_5][_6]
+    [_7][_8][_9][10][11][12][13]
+    [14][15][16][17][18][19][20]
+    [21][22][23][24][25][26][27]
+    [28][29][30][31][32][33][34]
+    [35][36][37][38][39][40][41]
+*/
+if((eID == 2) || (eID == 9) || (eID == 16) || (eID == 23) || (eID == 30) || (eID == 37)){
+        if(document.getElementById("37").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("37").style.backgroundColor = color;
+            
+        } else if(document.getElementById("30").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("30").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("23").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("23").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("16").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("16").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("9").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("9").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("2").style.backgroundColor == ""){
+            document.getElementById("2").style.backgroundColor = color;
+        } 
+       
+    }
+
+    /*
+    element id locations
+
+    [_0][_1][_2][_3][_4][_5][_6]
+    [_7][_8][_9][10][11][12][13]
+    [14][15][16][17][18][19][20]
+    [21][22][23][24][25][26][27]
+    [28][29][30][31][32][33][34]
+    [35][36][37][38][39][40][41]
+*/
+if((eID == 3) || (eID == 10) || (eID == 17) || (eID == 24) || (eID == 31) || (eID == 38)){
+        if(document.getElementById("38").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("38").style.backgroundColor = color;
+            
+        } else if(document.getElementById("31").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("31").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("24").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("24").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("17").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("17").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("10").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("10").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("3").style.backgroundColor == ""){
+            document.getElementById("3").style.backgroundColor = color;
+        } 
+       
+    }
+
+    /*
+    element id locations
+
+    [_4][_5][_6]
+    [11][12][13]
+    [18][19][20]
+    [25][26][27]
+    [32][33][34]
+    [39][40][41]
+*/
+if((eID == 4) || (eID == 11) || (eID == 18) || (eID == 25) || (eID == 32) || (eID == 39)){
+        if(document.getElementById("39").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("39").style.backgroundColor = color;
+            
+        } else if(document.getElementById("32").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("32").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("25").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("25").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("18").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("18").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("11").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("11").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("4").style.backgroundColor == ""){
+            document.getElementById("4").style.backgroundColor = color;
+        } 
+    }
+
+            /*
+    element id locations
+
+    [_5][_6]
+    [12][13]
+    [19][20]
+    [26][27]
+    [33][34]
+    [40][41]
+*/
+if((eID == 5) || (eID == 12) || (eID == 19) || (eID == 26) || (eID == 33) || (eID == 40)){
+        if(document.getElementById("40").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("40").style.backgroundColor = color;
+            
+        } else if(document.getElementById("33").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("33").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("26").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("26").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("19").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("19").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("12").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("12").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("5").style.backgroundColor == ""){
+            document.getElementById("5").style.backgroundColor = color;
+        } 
+    }
+
+            /*
+    element id locations
+
+    [_6]
+    [13]
+    [20]
+    [27]
+    [34]
+    [41]
+*/
+if((eID == 6) || (eID == 13) || (eID == 20) || (eID == 27) || (eID == 34) || (eID == 41)){
+        if(document.getElementById("41").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("41").style.backgroundColor = color;
+            
+        } else if(document.getElementById("34").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("34").style.backgroundColor = color;
+       
+        }  else if(document.getElementById("27").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("27").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("20").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("20").style.backgroundColor = color;
+        
+        }   else if(document.getElementById("13").style.backgroundColor == ""){
+            console.log(element);
+            document.getElementById("13").style.backgroundColor = color;
+        
+        }  else if(document.getElementById("6").style.backgroundColor == ""){
+            document.getElementById("6").style.backgroundColor = color;
+        } 
+    }
+
+
+}
+
+
+    
+
 
 </script>
 
