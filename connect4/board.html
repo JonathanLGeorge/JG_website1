@@ -99,6 +99,8 @@
     for (let i = 0; i < array2D.length; i++){
         array2D[i] = new Array(7);
     }
+
+/*-------------------------------------------------------------------------------------------------------------*/
 function winloop(i, j ){
     
     console.log(i + ' ' + j);
@@ -111,36 +113,51 @@ function winloop(i, j ){
         if(array2D[i][j+2] == color || array2D[i][j-2] == color){
             if(array2D[i][j+3] == color || array2D[i][j-3] == color){
                 console.log("The " + color + " player has won!");
+                return;
             }
         }
     }
 
-    //diagonal check
+    //diagonal check edge cases working
 
     if(i > 2  && j == 0){
         if(array2D[i-1][j+1] == color && array2D[i-2][j+2] == color && array2D[i-3][j+3] == color){
             console.log("The " + color + " player has won!");
+            return;
         }
     } else if(i < 3 && j == 0){
-        if(array2D[i+11][j+1] == color && array2D[i+2][j+2] == color && array2D[i+3][j+3] == color){
+        if(array2D[i+1][j+1] == color && array2D[i+2][j+2] == color && array2D[i+3][j+3] == color){
             console.log("The " + color + " player has won!");
+            return;
         }
     } else if(i > 2  && j == 6){
         if(array2D[i-1][j-1] == color && array2D[i-2][j-2] == color && array2D[i-3][j-3] == color){
             console.log("The " + color + " player has won!");
+            return;
         }
     } else if(i < 3 && j == 6){
+        
         if(array2D[i+1][j-1] == color && array2D[i+2][j-2] == color && array2D[i+3][j-3] == color){
             console.log("The " + color + " player has won!");
+            return;
+        }
+    } else if(i< 5 && j>0 && j<6){
+        if(array2D[i+1][j-1] == color || array2D[i-1][j+1] == color){
+            if(array2D[i+2][j-2] == color || array2D[i-2][j+2] == color){
+                if(array2D[i+3][j-3] == color || array2D[i-3][j+3] == color){
+                    console.log("The " + color + " player has won!");
+                    return;
+                }
+            }
         }
     }
 
 }
-
+/*-------------------------------------------------------------------------------------------------------------*/
 function colorchange(element){  
 //console.log(element);
  /*
-    element id locations            2d array
+    element id locations            2d array (i,j)
     [_0][_1][_2][_3][_4][_5][_6]    [0,0][0,1][0,2][0,3][0,4][0,5][0,6]
     [_7][_8][_9][10][11][12][13]    [1,0][1,1][1,2][1,3][1,4][1,5][1,6]
     [14][15][16][17][18][19][20]    [2,0][2,1][2,2][2,3][2,4][2,5][2,6]
