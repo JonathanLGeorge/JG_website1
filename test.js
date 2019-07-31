@@ -281,6 +281,13 @@ document.addEventListener('keydown', event => {
 	}
 });
 
+document.querySelector('p').addEventListener('touchstart', f);
+function f(ev){
+    console.log(ev.touches);
+}
+
+
+
 playerReset();
 updateScore();
 update();
