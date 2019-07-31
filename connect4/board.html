@@ -120,12 +120,14 @@ function winloop(i, j ){
    //vertical check
     if((i < 3) && (array2D[i+1][j] == color) && (array2D[i+2][j] == color) && (array2D[i+3][j] == color)){
         console.log("The " + color + " player has won!");
+        window.alert(color + " has won!");
     } 
     //horizontal check
     if(array2D[i][j+1] == color || array2D[i][j-1] == color ){
         if(array2D[i][j+2] == color || array2D[i][j-2] == color){
             if(array2D[i][j+3] == color || array2D[i][j-3] == color){
                 console.log("The " + color + " player has won!");
+                window.alert(color + " has won!");
                 return;
             }
         }
@@ -136,22 +138,26 @@ function winloop(i, j ){
     if(i > 2  && j == 0){
         if(array2D[i-1][j+1] == color && array2D[i-2][j+2] == color && array2D[i-3][j+3] == color){
             console.log("The " + color + " player has won!");
+            window.alert(color + " has won!");
             return;
         }
     } else if(i < 3 && j == 0){
         if(array2D[i+1][j+1] == color && array2D[i+2][j+2] == color && array2D[i+3][j+3] == color){
             console.log("The " + color + " player has won!");
+            window.alert(color + " has won!");
             return;
         }
     } else if(i > 2  && j == 6){
         if(array2D[i-1][j-1] == color && array2D[i-2][j-2] == color && array2D[i-3][j-3] == color){
             console.log("The " + color + " player has won!");
+            window.alert(color + " has won!");
             return;
         }
     } else if(i < 3 && j == 6){
         
         if(array2D[i+1][j-1] == color && array2D[i+2][j-2] == color && array2D[i+3][j-3] == color){
             console.log("The " + color + " player has won!");
+            window.alert(color + " has won!");
             return;
         }
     } else if(i< 5 && j>0 && j<6){
@@ -159,6 +165,7 @@ function winloop(i, j ){
             if(array2D[i+2][j-2] == color || array2D[i-2][j+2] == color){
                 if(array2D[i+3][j-3] == color || array2D[i-3][j+3] == color){
                     console.log("The " + color + " player has won!");
+                    window.alert(color + " has won!");
                     return;
                 }
             }
@@ -563,11 +570,15 @@ if((eID == 6) || (eID == 13) || (eID == 20) || (eID == 27) || (eID == 34) || (eI
 
 </script>
 
-
+<hr>
     <div id="buttons">
         <div id="helpText"><h3>press to restart</h3></div>
         
-        <div id="resetButton"><button id="newGame">New Game</button></div>
+        <div id="resetButton">
+            
+                <button onclick="location.reload();" id="newGame">New Game</button>
+            
+        </div>
     </div>
     </body>
 </html>
