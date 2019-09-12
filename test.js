@@ -282,8 +282,11 @@ document.addEventListener('keydown', event => {
 });
 
 document.querySelector('p').addEventListener('touchstart', f);
-function f(ev){
-    console.log(ev.touches);
+document.querySelector('p').addEventListener('touchend', f);
+
+function f(event){
+    console.log(event.touches, event.type);
+    playerRotate(-1);
 }
 
 
