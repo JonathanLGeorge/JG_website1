@@ -182,7 +182,7 @@ background-color: black;
 	align-items: center;
 	justify-content:center;
 				
-	background-image: url('img/nature.jpg');
+	background-image: url('img/bluetech.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 			
@@ -382,6 +382,10 @@ height: 420px;
   background-color: #fafafa;
   padding-bottom: 40px;
   text-align: center;
+}
+
+#famous-quotes .portrait-photos:hover {
+	color: black;
 }
  
 #famous-quotes .portrait-photos {
