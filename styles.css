@@ -245,6 +245,7 @@ background-color: black;
 
 #gallery{
 	background-color: #fff;
+	padding: 20px;
 }
 #gallery .grid li{
 	padding: 10px;
@@ -257,6 +258,7 @@ background-color: black;
 	background-color: #333;
 
 }
+
 
 #gallery ul.grid{
 	width: 100%;
